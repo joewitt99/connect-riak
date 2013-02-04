@@ -50,7 +50,7 @@ module.exports = function(connect) {
    */
   function reapSessions(self) {
     
-    self.client
+    self.client.mapreduce || self.client
       .add(self.bucket)
       .map(function(v) {
         
