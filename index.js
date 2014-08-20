@@ -12,13 +12,13 @@ var riak = require('riak-js');
  * @api public
  */
 
-module.exports = function(connect) {
+module.exports = function(session) {
 
   /**
    * Connect's Store.
    */
 
-  var Store = connect.session.Store;
+  var Store = session.Store;
 
   /**
    * Initialize RiakStore with the given `options`.
