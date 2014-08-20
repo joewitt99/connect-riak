@@ -10,12 +10,14 @@ Riak Session Store for Connect backed by [riak-js](https://github.com/frank06/ri
 
 ``` js
 var express = require('express'),
-  RiakStore = require('connect-riak')(express); // both express and connect will work
+  cookieParser = require('cookie-parser'),
+  session = require('express-session'),
+  RiakStore = require('connect-riak')(session);
 
-var app = express.createServer();
+var app = express();
 
-app.use(express.cookieParser());
-app.use(express.session({ secret: "s3cr3t", store: new RiakStore(options) }));
+app.use(cookieParser());
+app.use(session({ secret: "s3cr3t", store: new RiakStore(options) }));
 
 ```
 
